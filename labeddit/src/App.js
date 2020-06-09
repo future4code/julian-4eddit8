@@ -1,13 +1,11 @@
-import React from 'react';
-import Login from './Components/PagLogin'
+import React from 'react'
+import Posts from './Pages/PageUserPosts'
 
 
-function App() {
+export default function App() {
   return (
-    <div>
-      <Login />
-    </div>
-  );
+    <>
+      <Posts />
+    </>  
+    )
 }
-
-export default App;

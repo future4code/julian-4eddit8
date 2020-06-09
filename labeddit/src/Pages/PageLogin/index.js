@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Styled from 'styled-components'
 
-const DivForm = Styled.div`
+const Container = Styled.div`
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@ const ButtonWidth = Styled.div`
 export default function Login() {
     return (
         <>
-            <DivForm>
+            <Container>
                 <div>
                     <TextField id="outlined-basic" label="Email" variant="outlined" type="email" />
                 </div>
@@ -38,7 +38,7 @@ export default function Login() {
                         Cadastrar
                     </Button>
                 </div>
-            </DivForm>
+            </Container>
         </>
 
     )
