@@ -1,12 +1,12 @@
 import React from 'react';
-import PagUserPost from './Pages/PageUserPosts';
+import Post from './Components/Post';
 
 
 
 export default function App() {
   return (
     <div>
-      <PagUserPost/>
+      <Post/>
     </div>
   );
 }
