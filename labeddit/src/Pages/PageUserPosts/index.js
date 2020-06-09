@@ -1,8 +1,7 @@
 import React from 'react'
 import Styled from 'styled-components'
-import CreatePost from '../../Components/CreatePost'
-import FeedPostsTeste from '../../Components/PostFeed'
-
+import Post from '../../Components/Post'
+ 
 
 const Container = Styled.div`
     height: 100vh;
@@ -15,13 +14,10 @@ const Container = Styled.div`
 
 
 
-export default function Post() {
+export default function PagePost() {
     return (
         <Container>
-            <CreatePost/>
-            <FeedPostsTeste />
-            <FeedPostsTeste />
-            <FeedPostsTeste />
+           <Post />
         </Container>
     )
 }
