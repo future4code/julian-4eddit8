@@ -1,11 +1,10 @@
-import React from 'react'
-import Posts from './Pages/PageUserPosts'
+
+import React from 'react';
 
 
 export default function App() {
   return (
-    <>
-      <Posts />
-    </>  
-    )
+    <div>
+    </div>
+  );
 }
