@@ -1,44 +1,63 @@
 import React from 'react'
+import {useState} from 'react'
 import Styled from 'styled-components'
-
+import Button from '@material-ui/core/Button';
 
 const CardPost = Styled.div`
     display:flex;
-    flex-direction:column;
-    justify-content:end;
-    height: 20vh;
-    width: 30vw;
-    margin: 20px 0;
-    border: 1px solid #000;
-    text-align:center; 
-
+    flex-direction: column;
+    text-align:center;
 `
 
 const InputPost = Styled.div`
-    height:70%;
+    width: 30vw;
+    height: 20vh;
+` 
+
+const InputTextarea = Styled.textarea`
     width: 100%;
-    border-bottom:1px solid #000;
-    
+    height: 80%; 
+    text-align:justify;
+    padding: 5px;
 
 `
 
 const Sendpost = Styled.div`
-    height:30%;
-    width: 100%;
-
-
+    
 `
 
+
+
 export default function Post() {
+
+    const [postValue, setPostValue] = useState();
+
+    const onClickSendPost = () => {
+        const novoPost = {
+            post: postValue
+        }
+        console.log(novoPost)
+        setPostValue('')
+    }
+
+
+
     return (
-            <CardPost>
-                <InputPost>
-                    Escreva Seu Post
-                </InputPost>
-                <Sendpost>
-                    Postar
-                </Sendpost>
-            </CardPost>
-        
+        <CardPost>
+            <InputPost>
+                <InputTextarea 
+                value={postValue}
+                onChange={e => setPostValue(e.target.value)}               
+                ></InputTextarea>
+            </InputPost>
+            <Sendpost>
+                <Button onClick={onClickSendPost}>
+                    Cadastrar
+                </Button>
+
+                
+            </Sendpost>
+        </CardPost>
+
     )
 }

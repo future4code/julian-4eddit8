@@ -10,6 +10,7 @@ const CardPost = Styled.div`
     margin: 20px 0;
     border: 1px solid #000;
     text-align:center; 
+    
 
 `
 const HeaderPost = Styled.div`
