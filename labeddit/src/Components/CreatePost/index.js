@@ -33,10 +33,12 @@ export default function Post() {
     const [postValue, setPostValue] = useState();
 
     const onClickSendPost = () => {
-        const novoPost = {
-            post: postValue
+        const newPost = {
+            post: postValue,
+            title: ""
+
         }
-        console.log(novoPost)
+        console.log(newPost)
         setPostValue('')
     }
 
