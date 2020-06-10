@@ -1,10 +1,10 @@
 import React from 'react';
-import UserPosts from './Pages/PageUserPosts'
+import Login from './Pages/PageLogin'
 
 export default function App() {
   return (
     <div>
-      <UserPosts/>
-    </div>
+      <Login/>
+     </div>
   );
 }
