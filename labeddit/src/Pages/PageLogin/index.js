@@ -2,7 +2,8 @@ import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Styled from 'styled-components'
-import { useState } from 'react'
+import axios from 'axios';
+import useForm from '../PagCadastro/useForms';
 
 
 const Container = Styled.div`
@@ -22,47 +23,64 @@ const ButtonWidth = Styled.div`
 
 export default function Login() {
 
-    const [Email, setEmailValue] = useState("")
-    const [Pass, setPassValue] = useState("")
-
-
-    const onClickSendLogin = () => {
-        const login = {
-            email: Email,
-            pass: Pass
+    const [form, onChangeInput] = useForm({
+        email: "",
+        password: ""
+      })
+    
+      const onClickRegister = (event) => {
+        event.preventDefault()
+        const BodyLogin = {
+          "email": form.email,
+          "password": form.password
         }
-        console.log(login)
-        setEmailValue('')
-        setPassValue('')
-    }
+        axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labEddit/login', BodyLogin).then(function (response) {
+          console.log(response.data);
+          alert("Login efetuado com Sucesso")
+        }).catch(function (error) {
+          console.log(error);
+          alert("deu erro")
+          console.log(BodyLogin);
 
+        });
+    
+      }
+
+      
+ 
 
 
     return (
         <Container>
             <div>
                 <TextField
-                    id="outlined-basic"
+                    required
+                    id="outlined-required"
                     label="Email"
+                    defaultValue=""
                     variant="outlined"
-                    type="email"
-                    value={Email}
-                    onChange={e => setEmailValue(e.target.value)}
+                    onChange={onChangeInput}
+                    value={form['email']}
+                    name={'email'}
+                    type={'email'}
                 />
 
             </div>
             <div className="input">
                 <TextField
-                    id="outlined-basic"
+                    required
+                    id="outlined-password-input"
                     label="Senha"
+                    type="password"
+                    autoComplete="current-password"
                     variant="outlined"
-                    type="pass"
-                    value={Pass}
-                    onChange={e => setPassValue(e.target.value)}
+                    onChange={onChangeInput}
+                    value={form['password']}
+                    name={'password'}
                 />
             </div>
             <ButtonWidth >
-                <Button onClick={onClickSendLogin} variant="contained" color="primary" disableElevation>
+                <Button onClick={onClickRegister} variant="contained" color="primary" disableElevation>
                     Entrar
                     </Button>
             </ButtonWidth>

@@ -3,10 +3,13 @@ import {useState} from 'react'
 import Styled from 'styled-components'
 import Button from '@material-ui/core/Button';
 
+import Axios from 'axios'
+
 const CardPost = Styled.div`
     display:flex;
     flex-direction: column;
-    text-align:center;
+    justify-Content:center;
+    align-items:center;
 `
 
 const InputPost = Styled.div`
@@ -30,6 +33,10 @@ const Sendpost = Styled.div`
 
 export default function Post() {
 
+    const BaseURL = "https://us-central1-labenu-apis.cloudfunctions.net/labEddit/posts"     
+
+  
+
     const [postValue, setPostValue] = useState();
 
     const onClickSendPost = () => {
@@ -38,8 +45,7 @@ export default function Post() {
             title: ""
 
         }
-        console.log(newPost)
-        setPostValue('')
+      
     }
 
 
@@ -54,7 +60,7 @@ export default function Post() {
             </InputPost>
             <Sendpost>
                 <Button onClick={onClickSendPost}>
-                    Cadastrar
+                    Enviar Post
                 </Button>
 
                 
