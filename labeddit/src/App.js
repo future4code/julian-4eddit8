@@ -1,11 +1,38 @@
-import React from 'react';
-import PageLogin from './Pages/PageLogin'
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
+import Login from './Pages/PageLogin';
+import PagCadastro from './Pages/PagCadastro';
+import PagFeed from './Pages/PagFeed';
+import Post from './Pages/PageUserPosts'
 
-export default function App() {
+function App() {
   return (
-    <div>
-      <PageLogin/>
-      
-     </div>
+    <Router>
+      <div>        
+         <Switch>
+          <Route path="/cadastro">
+            <PagCadastro/>
+          </Route>
+          <Route path="/feed">
+            <PagFeed/>
+          </Route>
+          <Route path="/post">
+            <Post/>
+          </Route>
+          <Route path="/">
+            <Login/>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
+
+export default App
