@@ -1,44 +1,40 @@
 import React from 'react'
 import Styled from 'styled-components'
+import Axios from 'axios'
 
 
+const PostFeed = Styled.div`
+    display:flex;
+    flex-direction: column;
+    justify-Content:center;
+    align-items:center;
+
+`
 const CardPost = Styled.div`
     display:flex;
-    flex-direction:column;
-    height: 25vh;
-    width: 30vw;
-    margin: 20px 0;
-    border: 1px solid #000;
-    text-align:center; 
-    
+    flex-direction: column;
+    justify-Content:center;
+    align-items:center;
 
 `
-const HeaderPost = Styled.div`
-    border-bottom: 1px solid #000;
-    height: 20%;
-`
-const MainPost = Styled.div`
-    border-bottom: 1px solid #000;
-    height: 60%;
-`
 
-const FooterPost = Styled.div`
-    display: flex;
-    justify-content: space-around;
-
-`
 
 
 export default function Post() {
+
+    const BaseURL = `https://us-central1-labenu-apis.cloudfunctions.net/labEddit/posts`
+
+    Axios.get(BaseURL, {
+        
+    })
+    
     return (
+            
+        <PostFeed>
             <CardPost>
-                <HeaderPost>Fulano de Tal</HeaderPost>
-                <MainPost>Post Texto - Lorem Lorem </MainPost>
-                <FooterPost>
-                <p>⬆️ 5 ⬇️</p>
-                <p>Comentarios</p>
-                </FooterPost>
-            </CardPost>
+                sss
+            </CardPost>              
+            </PostFeed>
         
     )
 }

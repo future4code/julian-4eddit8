@@ -1,10 +1,11 @@
 import React from 'react';
-import PagCadastro from './Pages/PagCadastro'
+import PageLogin from './Pages/PageLogin'
 
 export default function App() {
   return (
     <div>
-      <PagCadastro/>
+      <PageLogin/>
+      
      </div>
   );
 }
